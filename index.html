@@ -1,8 +1,84 @@
-<style>
-  ::root{
-    font-family: sans-serif
-  }
-</style>
-Joe Esposito, gringinu, IcedJelly Permalink
-This website will ALWAYS redirect you to the website owned by "Joe Esposito"
-Link: https://www.icedjelly.com
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERMALINK</title>
+    <style>
+        body {
+            font-family: "lexend", sans-serif;
+            color: lightgray;
+            font-size: 2em;
+            overflow: hidden;
+        }
+
+        a:hover {
+            color: lightblue;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: underline;
+            background-color: black;
+            padding: 5px;
+            border-radius: 10px;
+            color: #7db3ff;
+            transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        a:active {
+            font-weight: 900;
+        }
+
+        .layer {
+            height: 5000000px;
+            width: 100vw;
+            background-size: 200vh;
+            background-repeat: repeat;
+            position: absolute;
+            top: 0;
+            opacity: 0.5;
+        }
+
+        #layer_1 {
+            background-image: url(MediaPlayerClassicBackground.png);
+            opacity: 1;
+            top: 0;
+            left: 0;
+        }
+
+        #layer_2 {
+            background-image: url(stars.png);
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="layer" id="layer_1"></div>
+    <div class="layer" id="layer_2"></div>
+    <div style="position: sticky; top: 0;">
+        <h1>Joe Esposito, gringinu, IcedJelly Permalink</h1>
+        This web site will ALWAYS redirect you to the website owned by "Joe Esposito"
+        <br>
+        Link:
+        <a href="https://www.icedjelly.com">https://www.icedjelly.com</a>
+    </div>
+    <script>
+        const layer_2 = document.getElementById("layer_2")
+        //const layer_1 = document.getElementById("layer_1")
+        let ticks = 0
+        window.setInterval(function ()
+        {
+            ticks++
+            layer_1.style.backgroundPositionY = (ticks) + "px"
+            layer_2.style.backgroundPositionY = (ticks * 1.1) + "px"
+        }, 1);
+    </script>
+</body>
+
+</html>
