@@ -12,6 +12,8 @@
             font-size: 2em;
             overflow: hidden;
             background-color: black;
+            margin: 0;
+            padding: 0;
         }
 
         a:hover {
@@ -34,7 +36,7 @@
         }
 
         .layer {
-            height: 5000000px;
+            height: 100vh;
             width: 100vw;
             background-size: 200vh;
             background-repeat: repeat;
@@ -53,6 +55,55 @@
         #layer_2 {
             background-image: url(stars.png);
         }
+
+        /* HTML: <div class="loader"></div> */
+        .loader {
+            --border-width: 20px;
+            width: calc(100vw - var(--border-width)*2);
+            height: calc(100vh - var(--border-width)*2);
+            border: var(--border-width) solid #ffffff;
+            border-radius: 0px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            inset: calc((var(--border-width) * -1) - 0.5px);
+            border-radius: 0px;
+            border: calc(var(--border-width) + 1px) solid #4589ff;
+            animation: l18 1s 1 linear;
+        }
+
+        @keyframes l18 {
+            0% {
+                clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+            }
+
+            24% {
+                clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+            }
+
+            25% {
+                clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+            }
+
+            50% {
+                clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)                
+            }
+
+            75% {
+                clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+            }
+
+            100% {
+                clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+            }
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,25 +111,31 @@
 </head>
 
 <body>
+    <div id="loader" class="loader"></div>
     <div class="layer" id="layer_1"></div>
     <div class="layer" id="layer_2"></div>
-    <div style="position: sticky; top: 0;">
-        <h1>Joe Esposito, gringinu, IcedJelly Permalink</h1>
+    <div style="position: absolute; top: 0; margin: 2em; width: 20em;">
+        <h1 style="margin: 0;">Joe Esposito, gringinu, IcedJelly Permalink</h1>
         This web site will ALWAYS redirect you to the website owned by "Joe Esposito"
-        <br>
+        <br></br>
         Link:
         <a href="https://www.icedjelly.com">https://www.icedjelly.com</a>
     </div>
     <script>
         const layer_2 = document.getElementById("layer_2")
-        //const layer_1 = document.getElementById("layer_1")
+        const layer_1 = document.getElementById("layer_1")
         let ticks = 0
         window.setInterval(function ()
         {
             ticks++
             layer_1.style.backgroundPositionY = (ticks) + "px"
-            layer_2.style.backgroundPositionY = (ticks * 1.1) + "px"
+            layer_2.style.backgroundPositionY = (ticks * 1.2) + "px"
         }, 1);
+
+        loader.addEventListener("animationend", function ()
+        {
+            window.location.replace("https://www.icedjelly.com")
+        });
     </script>
 </body>
 
