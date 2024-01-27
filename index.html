@@ -9,7 +9,7 @@
         body {
             font-family: "lexend", sans-serif;
             color: lightgray;
-            font-size: 2em;
+            font-size: min(2em, 3.5vw);
             overflow: hidden;
             background-color: black;
             margin: 0;
@@ -36,9 +36,9 @@
         }
 
         .layer {
-            height: 100vh;
+            height: 100dvh;
             width: 100vw;
-            background-size: 200vh;
+            background-size: 200dvh;
             background-repeat: repeat;
             position: absolute;
             top: 0;
@@ -60,13 +60,13 @@
         .loader {
             --border-width: 20px;
             width: calc(100vw - var(--border-width)*2);
-            height: calc(100vh - var(--border-width)*2);
+            height: calc(100dvh - var(--border-width)*2);
             border: var(--border-width) solid #ffffff;
             border-radius: 0px;
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 99;
+            z-index: 1;
 
         }
 
@@ -114,7 +114,10 @@
     <div id="loader" class="loader"></div>
     <div class="layer" id="layer_1"></div>
     <div class="layer" id="layer_2"></div>
-    <div style="position: absolute; top: 0; margin: 2em; width: 20em;">
+    <div style="    position: absolute; z-index: 2;
+    top: 50px;
+    left: 50px;
+    width: 20em;">
         <h1 style="margin: 0;">Joe Esposito, gringinu, IcedJelly Permalink</h1>
         This web site will ALWAYS redirect you to the website owned by "Joe Esposito"
         <br></br>
